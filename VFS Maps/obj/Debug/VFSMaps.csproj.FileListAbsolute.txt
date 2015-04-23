@@ -1,0 +1,5 @@
+C:\Users\Jinesh\Documents\Visual Studio 2008\Projects\VFS Maps\VFS Maps\bin\VFSMaps.dll
+C:\Users\Jinesh\Documents\Visual Studio 2008\Projects\VFS Maps\VFS Maps\bin\VFSMaps.pdb
+C:\Users\Jinesh\Documents\Visual Studio 2008\Projects\VFS Maps\VFS Maps\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Jinesh\Documents\Visual Studio 2008\Projects\VFS Maps\VFS Maps\obj\Debug\VFSMaps.dll
+C:\Users\Jinesh\Documents\Visual Studio 2008\Projects\VFS Maps\VFS Maps\obj\Debug\VFSMaps.pdb

@@ -1,0 +1,1551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+    <head>
+    	<title>VFS Global Reports</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=0;">
+        <link rel="stylesheet" href="css/jquery-ui.css" />
+    	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css" />
+    	<link rel="stylesheet" type="text/css" href="stylesheets/theme.css" />
+    	<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css" />
+    	<link rel="icon" href="images/favicon.ico" type="image/ico">
+    	<link rel="shortcut icon" href="assets/ico/favicon.ico">
+    	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    	<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">    
+        <style type="text/css">
+        		body
+        		{
+        			width: 100%
+        		}
+            	#mapdiv
+            	{
+					width	: 100%;
+					height	: 700px;
+					float: right
+				}
+				#tabcard
+				{	
+					float: left;
+					width:15%;
+					color: white;
+					font-size: 85%;
+					background-image: url('images/black-Linen.png');
+				}
+				#topcard
+				{	
+					float: left;
+					width:25%;
+					color: white;
+					font-size: 120%;
+					background-color: white;
+				}
+				#mapcard
+				{	
+					float: left;
+					width:70%;
+					color: white;
+					font-size: 120%;
+					background-color: white;
+				}
+				#mainvactab
+				{	
+					float: right;
+					width:15%;
+					color: white;
+					font-size: 85%;
+					background-image: url('images/black-Linen.png');
+				}
+				#vaccard
+				{	
+					
+					height: 700px;
+					background-image: url('images/black-Linen.png');
+				}		
+        </style>
+        <script src="js/jquery-1.10.2.js"></script>
+        <script src="jquery.mobile-1.4.0.min.js"></script>
+        <script type="text/javascript" src="ammap/ammap/ammap.js"></script>
+
+        <script type="text/javascript" src="ammap/ammap/maps/js/worldHigh.js"></script>
+        <script type="text/javascript" src="ammap/ammap/maps/js/continentsHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/indiaHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/sriLankaHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/bangladeshHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/nepalHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/canadaHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/brazilHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/japanHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/australiaHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/pakistanHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/taiwanHigh.js"></script>
+		<script type="text/javascript" src="ammap/ammap/maps/js/qatarHigh.js"></script>
+
+		<script type="text/javascript" src="ammap/ammap/themes/light.js"></script>
+	</head>           
+	<script type="text/javascript">
+			function getdata()	{
+	        	locationname = $("#LocationSelect").val();
+	        	//yearmonth = $("#DateSelect").val();
+	        	//selectedChart = $("#ChartSelect").val();
+	        	if (locationname=="India")
+	        	 {
+	        	 	IndiaDiv();
+	        	 }
+	        	else if (locationname=="Sri Lanka")
+	        	{
+	        			SriLankaDiv();
+	        	}
+	        	else if (locationname=="Bangladesh")
+	        	{
+	        			BangladeshDiv();
+	        	}
+	        	else if (locationname=="Nepal")
+	        	{
+	        			NepalDiv();
+	        	}
+	        	else if (locationname=="Saudi Arabia")
+	        	{
+	        			SaudiDiv();
+	        	}
+	        	else if (locationname=="World")
+	        	{
+	        			WorldDiv();
+	        	}
+	        	else if (locationname=="Canada")
+	        	{
+	        			CanadaDiv();
+	        	}
+	        	else if (locationname=="Brazil")
+	        	{
+	        			BrazilDiv();
+	        	}
+	        	else if (locationname=="Australia")
+	        	{
+	        			AustraliaDiv();
+	        	}
+	        	else if (locationname=="Japan")
+	        	{
+	        			JapanDiv();
+	        	}
+	        	else if (locationname=="Pakistan")
+	        	{
+	        			PakistanDiv();
+	        	}
+	        	else if (locationname=="Taiwan")
+	        	{
+	        			TaiwanDiv();
+	        	}
+	        	else if (locationname=="Qatar")
+	        	{
+	        			QatarDiv();
+	        	}
+        	}//end of getdata
+
+			function WorldDiv()	{
+				$("#mapcard").css("width", "85%");
+				$("#mainvactab").hide();
+				$("#CountryName").text("Global");
+				$("#TotalLocations").text("23");
+				$("#TotalTickets").text("1,77,804");
+				$("#TotalApplications").text("2,90,156");
+				$("#TopLocation1").text("MUM-RSA [Mumbai]");
+				$("#TopTAT1").text("00:07:16");
+				$("#TopLocation2").text("BLR-CSV2 [Bangalore]");
+				$("#TopTAT2").text("00:08:51");
+				$("#TopLocation3").text("Toronto [Canada]");
+				$("#TopTAT3").text("00:12:54");
+				$("#WorstLocation1").text("DAC-CAN-SP [Dhaka]");
+				$("#WorstTAT1").text("00:46:16");
+				$("#WorstLocation2").text("Brasilia [Brazil ]");
+				$("#WorstTAT2").text("00:39:51");
+				$("#WorstLocation3").text("UK_AUS_CMB [Colombo]");
+				$("#WorstTAT3").text("00:37:42");
+
+				// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+
+					var map = AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    theme: "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						panEventsEnabled:true,
+						dataProvider: {
+							map: "worldHigh",
+							getAreasFromMap: true,
+					        areas: [{
+					            id: "IN",
+					            color: "orange",
+					        },
+					        {
+					            id: "LK",
+					            color: "red",
+					        },
+					        {
+					            id: "BD",
+					            color: "green",
+					        },
+					        {
+					            id: "CA",
+					            color: "green",
+					        },
+					        {
+					            id: "BR",
+					            color: "orange",
+					        },
+					        {
+					            id: "JP",
+					            color: "red",
+					        },
+					        {
+					            id: "AU",
+					            color: "orange",
+					        },
+					        {
+					            id: "PK",
+					            color: "green",
+					        },
+					        {
+					            id: "TW",
+					            color: "green",
+					        }]
+						},
+
+						zoomControl:{maxZoomLevel:100,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{selectedColor:"blue",autoZoom: true,color:"#00305D",unlistedAreasColor:"#00305D"}//,rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+					map.addListener("clickMapObject", function (event) {
+				        if (event.mapObject.id == "IN")
+				        	{setTimeout(IndiaDiv, 1000)}				   
+				        else if (event.mapObject.id == "LK")
+				        	{setTimeout(SriLankaDiv, 1000)}
+				        else if (event.mapObject.id == "BD")
+				        	{setTimeout(BangladeshDiv, 1000)}
+				        else if (event.mapObject.id == "CA")
+				        	{setTimeout(CanadaDiv, 1000)}
+				        else if (event.mapObject.id == "BR")
+				        	{setTimeout(BrazilDiv, 1000)}
+				        else if (event.mapObject.id == "JP")
+				        	{setTimeout(JapanDiv, 1000)}
+				        else if (event.mapObject.id == "AU")
+				        	{setTimeout(AustraliaDiv, 1000)}
+				        else if (event.mapObject.id == "PK")
+				        	{setTimeout(PakistanDiv, 1000)}
+				        else if (event.mapObject.id == "TW")
+				        	{setTimeout(TaiwanDiv, 1000)}
+				    });
+			}//end of WorldDiv
+
+			function IndiaDiv() {
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("India");
+				$("#TotalLocations").text("9");
+				$("#TotalTickets").text("55,654");
+				$("#TotalApplications").text("92,978");
+
+				$("#TopLocation1").text("MUM-RSA [Mumbai]");
+				$("#TopTAT1").text("00:07:16");
+				$("#TopLocation2").text("BLR-CSV2 [Bangalore]");
+				$("#TopTAT2").text("00:08:51");
+				$("#TopLocation3").text("AHM-CAN [Ahmedabad]");
+				$("#TopTAT3").text("00:09:37");
+
+				$("#WorstLocation1").text("MUM-UK-GAR [Mumbai]");
+				$("#WorstTAT1").text("00:29:16");
+				$("#WorstLocation2").text("DEL-CSV2 [Delhi]");
+				$("#WorstTAT2").text("00:28:51");
+				$("#WorstLocation3").text("CHG-CAN [Chandigarh]");
+				$("#WorstTAT3").text("00:20:37");
+
+				$("#vac_name1").text("MUM-RSA [Mumbai]");
+				$("#vac_totaltickets1").text("7029");
+				$("#vac_noofapplications1").text("21061");
+				$("#vac_avgservtime1").text("00:08:30");
+				$("#vac_avgwaittime1").text("00:13:19");
+				$("#vac_avgtat1").text("00:07:16");
+				$("#vac_firstticket1").text("8:32 AM");
+				$("#vac_totalcounter1").text("5");
+				$("#vac_activecounter1").text("5");
+
+				$("#vac_name2").text("DEL-CAN [Delhi]");
+				$("#vac_totaltickets2").text("8737");
+				$("#vac_noofapplications2").text("19581");
+				$("#vac_avgservtime2").text("00:02:59");
+				$("#vac_avgwaittime2").text("00:10:10");
+				$("#vac_avgtat2").text("00:05:51");
+				$("#vac_firstticket2").text("8:48 AM");
+				$("#vac_totalcounter2").text("10");
+				$("#vac_activecounter2").text("5");
+
+				$("#vac_name3").text("CHE-UK [Chennai]");
+				$("#vac_totaltickets3").text("4622");
+				$("#vac_noofapplications3").text("5905");
+				$("#vac_avgservtime3").text("00:08:19");
+				$("#vac_avgwaittime3").text("00:20:13");
+				$("#vac_avgtat3").text("00:22:20");
+				$("#vac_firstticket3").text("8:37 AM");
+				$("#vac_totalcounter3").text("10");
+				$("#vac_activecounter3").text("5");
+
+				$("#vac_name4").text("BLR-CSV2 [Bangalore]");
+				$("#vac_totaltickets4").text("6082");
+				$("#vac_noofapplications4").text("11510");
+				$("#vac_avgservtime4").text("00:03:10");
+				$("#vac_avgwaittime4").text("00:13:36<");
+				$("#vac_avgtat4").text("00:08:51");
+				$("#vac_firstticket4").text("8:37 AM");
+				$("#vac_totalcounter4").text("7");
+				$("#vac_activecounter4").text("5");
+					
+				// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+								{
+									svgPath: targetSVG,
+									title: "MUM-AUS",
+									latitude:18.956478,
+									longitude:72.807369,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>MUM-AUS [Mumbai]</b><br><br><b>Total Tickets:</b> 3779<br/><b>No Of Applications:</b> 8710<br/><b>Avg Service Time:</b> 00:11:22<br/><b>Avg Wait Time:</b> 00:51:33<br/><b>Avg TAT:</b> 00:27:18<br/><b>First Ticket Logged at:</b> 8:54 AM<br/><b>Total Counters:</b>10<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "MUM-IRE",
+									latitude:18.956478,
+									longitude:72.807369,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>MUM-IRE [Mumbai]</b><br><br><b>Total Tickets:</b> 3779<br/><b>No Of Applications:</b> 8710<br/><b>Avg Service Time:</b> 00:11:22<br/><b>Avg Wait Time:</b> 00:51:33<br/><b>Avg TAT:</b> 00:27:18<br/><b>First Ticket Logged at:</b> 9:37 AM<br/><b>Total Counters:</b>8<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "MUM-UK-GAR [Mumbai]",
+									latitude:19.1091398,
+									longitude:72.8528263,
+									color: "orange",
+									RollOverColor:"orange",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>MUM-UK-GAR [Mumbai]</b><br><br><b>Total Tickets:</b> 5648<br/><b>No Of Applications:</b> 6985<br/><b>Avg Service Time:</b> 00:14:08<br/><b>Avg Wait Time:</b> 00:24:05<br/><b>Avg TAT:</b> 00:30:54<br/><b>First Ticket Logged at:</b> 8:18 AM<br/><b>Total Counters:</b>6<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "MUM-RSA [Mumbai]",
+									latitude:18.963675,
+									longitude:72.81619,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>MUM-RSA [Mumbai]</b><br><br><b>TotalTickets:</b> 7029<br/><b>No Of Applications:</b> 21061<br/><b>Avg Service Time:</b> 00:08:30<br/><b>Avg Wait Time:</b> 00:13:19<br/><b>Avg TAT:</b> 00:07:16<br/><b>First Ticket Logged at:</b> 8:32 AM<br/><b>Total Counters:</b>5<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "DEL-CAN [Delhi]",
+									latitude:28.55037,
+									longitude:77.251723,
+									color: "orange",
+									RollOverColor:"orange",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>DEL-CAN [Delhi]</b><br><br><b>Total Tickets:</b> 8737<br/><b>No Of Applications:</b> 19581<br/><b>Avg Service Time:</b> 00:02:59<br/><b>Avg Wait Time:</b> 00:10:10<br/><b>Avg TAT:</b> 00:05:51<br/><b>First Ticket Logged at:</b> 8:48 AM<br/><b>Total Counters:</b>10<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "DEL-UK [Delhi]",
+									latitude:28.550414,
+									longitude:77.24999,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>DEL-UK [Delhi]</b><br><br><b>TotalTickets:</b> 8412<br/><b>No Of Applications:</b> 10534<br/><b>Avg Service Time:</b> 00:14:43<br/><b>Avg Wait Time:</b> 00:26:41<br/><b>AvgTAT:</b> 00:33:04<br/><b>First Ticket Logged at:</b> 8:45 AM<br/><b>Total Counters:</b>18<br/><b>Active Counters:</b>9<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "CHE-UK [Chennai]",
+									latitude:13.076047,
+									longitude:80.234192,
+									color: "orange",
+									RollOverColor:"orange",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>CHE-UK [Chennai]</b><br><br><b>Total Tickets:</b> 4622<br/><b>No Of Applications:</b> 5905<br/><b>Avg Service Time:</b> 00:08:19<br/><b>Avg Wait Time:</b> 00:20:13<br/><b>Avg TAT:</b> 00:22:20<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>10<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "CHA-CAN [Chandigarh]",
+									latitude:30.7397101,
+									longitude:76.7916986,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>CHA-CAN [Chandigarh]</b><br><br><b>Total Tickets:</b> 6649<br/><b>No Of Applications:</b> 10077<br/><b>Avg Service Time:</b> 00:03:52<br/><b>Avg Wait Time:</b> 00:19:49<br/><b>Avg TAT:</b> 00:15:37<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>10<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "BLR-CSV2 [Bangalore]",
+									latitude:12.980016,
+									longitude:77.6023317,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>BLR-CSV2 [Bangalore]</b><br><br><b>Total Tickets:</b> 6082<br/><b>No Of Applications:</b> 11510<br/><b>Avg Service Time:</b> 00:03:10<br/><b>Avg Wait Time:</b> 00:13:36<br/><b>Avg TAT:</b> 00:08:51<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>7<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "HYD-UK [Hyderabad]",
+									latitude:17.418332,
+									longitude:78.4414295,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>HYD-UK [Hyderabad]</b><br><br><b>Total Tickets:</b> 2384<br/><b>No Of Applications:</b> 3200<br/><b>Avg Service Time:</b> 00:14:45<br/><b>Avg Wait Time:</b> 00:18:24<br/><b>Avg TAT:</b> 00:24:41<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>5<br/><b>Active Counters:</b>5<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "COC-UK-IRE [Cochin]",
+									latitude:9.9273365,
+									longitude:76.2668541,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>COC-UK-IRE [Cochin]</b><br><br><b>Total Tickets:</b> 1716<br/><b>No Of Applications:</b> 2171<br/><b>Avg Service Time:</b> 00:11:00<br/><b>Avg Wait Time:</b> 00:23:23<br/><b>Avg TAT:</b> 00:27:11<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>4<br/><b>Active Counters:</b>4<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "AHM-CAN [Ahmedabad]",
+									latitude:23.0304948,
+									longitude:72.5697219,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>AHM-CAN [Ahmedabad]</b><br><br><b>Total Tickets:</b> 3087<br/><b>No Of Applications:</b> 4409<br/><b>Avg Service Time:</b> 00:08:53<br/><b>Avg Wait Time:</b> 00:19:08<br/><b>Avg TAT:</b> 00:19:37<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								}
+				]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "indiaHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of IndiaDiv
+
+			function SriLankaDiv()	{
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("Sri Lanka");
+				$("#TotalLocations").text("3");
+				$("#TotalTickets").text("16,689");
+				$("#TotalApplications").text("22,714");
+
+				$("#TopLocation1").text("UK-AUS-CMB [Colombo]");
+				$("#TopTAT1").text("00:37:42");
+				$("#TopLocation2").text("");
+				$("#TopTAT2").text("");
+				$("#TopLocation3").text("");
+				$("#TopTAT3").text("");
+
+				$("#WorstLocation1").text("UK_AUS_CMB [Colombo]");
+				$("#WorstTAT1").text("00:37:42");
+				$("#WorstLocation2").text("");
+				$("#WorstTAT2").text("");
+				$("#WorstLocation3").text("");
+				$("#WorstTAT3").text("");
+
+				$("#vac_name1").text("UK_AUS_CMB [Colombo]");
+				$("#vac_totaltickets1").text("9391");
+				$("#vac_noofapplications1").text("12481");
+				$("#vac_avgservtime1").text("00:13:27");
+				$("#vac_avgwaittime1").text("00:36:40");
+				$("#vac_avgtat1").text("00:37:42");
+				$("#vac_firstticket1").text("8:37 AM");
+				$("#vac_totalcounter1").text("5");
+				$("#vac_activecounter1").text("4");
+
+				$("#vac_name2").text("CSV_CMB [Colombo]");
+				$("#vac_totaltickets2").text("6212");
+				$("#vac_noofapplications2").text("8491");
+				$("#vac_avgservtime2").text("00:09:03");
+				$("#vac_avgwaittime2").text("00:24:15");
+				$("#vac_avgtat2").text("00:24:21");
+				$("#vac_firstticket2").text("8:56 AM");
+				$("#vac_totalcounter2").text("8");
+				$("#vac_activecounter2").text("6");
+
+				$("#vac_name3").text("CAN_CMB [Colombo]");
+				$("#vac_totaltickets3").text("1352");
+				$("#vac_noofapplications3").text("1754");
+				$("#vac_avgservtime3").text("00:10:41");
+				$("#vac_avgwaittime3").text("00:21:30");
+				$("#vac_avgtat3").text("00:24:48");
+				$("#vac_firstticket3").text("8:43 AM");
+				$("#vac_totalcounter3").text("12");
+				$("#vac_activecounter3").text("4");
+
+				$("#vaccard4").hide();
+				//Variables for Map
+					// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+								{
+									svgPath: targetSVG,
+									title: "UK_AUS_CMB [Colombo]",
+									latitude:6.926855,
+									longitude:79.8606588,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>UK_AUS_CMB [Colombo]</b><br><br><b>TotalTickets:</b> 9391<br/><b>NoOfApplications:</b> 12481<br/><b>AvgServiceTime:</b> 00:13:27<br/><b>AvgWaitTime:</b> 00:36:40<br/><b>AvgTAT:</b> 00:37:42<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>5<br/><b>Active Counters:</b>4<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "CSV_CMB [Colombo]",
+									latitude:6.9326966,
+									longitude:79.8441803,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>CSV_CMB [Colombo]</b><br><br><b>TotalTickets:</b> 6212<br/><b>NoOfApplications:</b> 8491<br/><b>AvgServiceTime:</b> 00:09:03<br/><b>AvgWaitTime:</b> 00:24:15<br/><b>AvgTAT:</b> 00:24:21<br/><b>First Ticket Logged at:</b> 8:56 AM<br/><b>Total Counters:</b>8<br/><b>Active Counters:</b>6<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "CAN_CMB [Colombo]",
+									latitude:6.909912,
+									longitude:79.873521,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>CSV_CMB [Colombo]</b><br><br><b>TotalTickets:</b> 1352<br/><b>NoOfApplications:</b> 1754<br/><b>AvgServiceTime:</b> 00:10:41<br/><b>AvgWaitTime:</b> 00:21:30<br/><b>AvgTAT:</b> 00:24:48<br/><b>First Ticket Logged at:</b> 8:43 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								}
+				]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "sriLankaHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of SriLankaDiv
+
+			function BangladeshDiv()	{
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("Bangladesh");
+				$("#TotalLocations").text("1");
+				$("#TotalTickets").text("7,804");
+				$("#TotalApplications").text("10,119");
+
+				$("#TopLocation1").text("DAC-CAN-SP [Dhaka]");
+				$("#TopTAT1").text("00:46:16");
+				$("#TopLocation2").text("");
+				$("#TopTAT2").text("");
+				$("#TopLocation3").text("");
+				$("#TopTAT3").text("");
+
+				$("#WorstLocation1").text("");
+				$("#WorstTAT1").text("");
+				$("#WorstLocation2").text("");
+				$("#WorstTAT2").text("");
+				$("#WorstLocation3").text("");
+				$("#WorstTAT3").text("");
+
+				$("#vac_name1").text("DAC_CAN_SP [Dhaka]");
+				$("#vac_totaltickets1").text("7804");
+				$("#vac_noofapplications1").text("10119");
+				$("#vac_avgservtime1").text("00:08:37");
+				$("#vac_avgwaittime1").text("00:24:58");
+				$("#vac_avgtat1").text("00:46:16");
+				$("#vac_firstticket1").text("8:37 AM");
+				$("#vac_totalcounter1").text("12");
+				$("#vac_activecounter1").text("4");
+
+				$("#vaccard2").hide();
+				$("#vaccard3").hide();
+				$("#vaccard4").hide();
+
+				// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [{svgPath: targetSVG,title: 'DAC_CAN_SP [Dhaka]',latitude:23.777441,longitude:90.416053,color: 'green',RollOverColor:'green',rollOverScale: 3,selectedScale: 3,balloonText:'<b>DAC_CAN_SP [Dhaka]</b><br><br><b>TotalTickets:</b> 7804<br/><b>NoOfApplications:</b> 10119<br/><b>AvgServiceTime:</b> 00:08:37<br/><b>AvgWaitTime:</b>00:24:58<br/><b>AvgTAT:</b> 00:46:16<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>'}]
+					//alert(bangdata);
+					//var bangdata2 = JSON.parse(bangdata);
+					
+					//alert(bangdata2);
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "bangladeshHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of BangladeshDiv
+
+			function CanadaDiv()	{
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("Canada");
+				$("#TotalLocations").text("5");
+				$("#TotalTickets").text("32,863");
+				$("#TotalApplications").text("53,975");
+
+				$("#TopLocation1").text("Toronto [Canada]");
+				$("#TopTAT1").text("00:12:54");
+				$("#TopLocation2").text("Edmonton [Canada ]");
+				$("#TopTAT2").text("00:14:21");
+				$("#TopLocation3").text("Vancouver [Canada ]");
+				$("#TopTAT3").text("00:17:48");
+
+				$("#WorstLocation1").text("Vancouver [Canada ]");
+				$("#WorstTAT1").text("00:17:48");
+				$("#WorstLocation2").text("");
+				$("#WorstTAT2").text("");
+				$("#WorstLocation3").text("");
+				$("#WorstTAT3").text("");
+
+				$("#vac_name1").text("Toronto [Canada]");
+				$("#vac_totaltickets1").text("9391");
+				$("#vac_noofapplications1").text("12481");
+				$("#vac_avgservtime1").text("00:13:27");
+				$("#vac_avgwaittime1").text("00:36:40");
+				$("#vac_avgtat1").text("00:12:54");
+				$("#vac_firstticket1").text("8:37 AM");
+				$("#vac_totalcounter1").text("12");
+				$("#vac_activecounter1").text("4");
+
+				$("#vac_name2").text("Edmonton [Canada]");
+				$("#vac_totaltickets2").text("6212");
+				$("#vac_noofapplications2").text("8491");
+				$("#vac_avgservtime2").text("00:09:03");
+				$("#vac_avgwaittime2").text("00:24:15");
+				$("#vac_avgtat2").text("00:14:21");
+				$("#vac_firstticket2").text("8:37 AM");
+				$("#vac_totalcounter2").text("12");
+				$("#vac_activecounter2").text("4");
+
+				$("#vac_name3").text("Vancouver [Canada ]");
+				$("#vac_totaltickets3").text("1352");
+				$("#vac_noofapplications3").text("1754");
+				$("#vac_avgservtime3").text("00:10:41");
+				$("#vac_avgwaittime3").text("00:21:30");
+				$("#vac_avgtat3").text("00:17:48");
+				$("#vac_firstticket3").text("8:37 AM");
+				$("#vac_totalcounter3").text("12");
+				$("#vac_activecounter3").text("4");
+
+				$("#vaccard4").hide();
+				// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+								{
+									svgPath: targetSVG,
+									title: "Toronto [Canada]",
+									latitude:43.7182712,
+									longitude:-79.3777061,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Toronto [Canada]</b><br><br><b>TotalTickets:</b> 9391<br/><b>NoOfApplications:</b> 12481<br/><b>AvgServiceTime:</b> 00:13:27<br/><b>AvgWaitTime:</b> 00:36:40<br/><b>AvgTAT:</b> 00:12:54<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "Edmonton [Canada]",
+									latitude:53.5558774,
+									longitude:-113.4939486,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Edmonton [Canada]</b><br><br><b>TotalTickets:</b> 6212<br/><b>NoOfApplications:</b> 8491<br/><b>AvgServiceTime:</b> 00:09:03<br/><b>AvgWaitTime:</b> 00:24:15<br/><b>AvgTAT:</b> 00:14:21<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "Vancouver [Canada ]",
+									latitude:49.2569777,
+									longitude:-123.123904,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Vancouver [Canada ]</b><br><br><b>TotalTickets:</b> 1352<br/><b>NoOfApplications:</b> 1754<br/><b>AvgServiceTime:</b> 00:10:41<br/><b>AvgWaitTime:</b> 00:21:30<br/><b>AvgTAT:</b> 00:17:48<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								}
+				]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "canadaHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of CanadaDiv
+
+			function BrazilDiv()	{
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("Brazil");
+				$("#TotalLocations").text("3");
+				$("#TotalTickets").text("14,369");
+				$("#TotalApplications").text("19,714");
+
+				$("#TopLocation1").text("Rio De Janerio [Brazil ]");
+				$("#TopTAT1").text("00:12:21");
+				$("#TopLocation2").text("Sao Paulo [Brazil ]");
+				$("#TopTAT2").text("00:17:42");
+				$("#TopLocation3").text("");
+				$("#TopTAT3").text("");
+
+				$("#WorstLocation1").text("Brasilia [Brazil ]");
+				$("#WorstTAT1").text("00:39:51");
+				$("#WorstLocation2").text("");
+				$("#WorstTAT2").text("");
+				$("#WorstLocation3").text("");
+				$("#WorstTAT3").text("");
+
+				$("#vac_name1").text("Sao Paulo [Brazil ]");
+				$("#vac_totaltickets1").text("9391");
+				$("#vac_noofapplications1").text("12481");
+				$("#vac_avgservtime1").text("00:13:27");
+				$("#vac_avgwaittime1").text("00:36:40");
+				$("#vac_avgtat1").text("00:12:54");
+				$("#vac_firstticket1").text("8:37 AM");
+				$("#vac_totalcounter1").text("12");
+				$("#vac_activecounter1").text("4");
+
+				$("#vac_name2").text("Rio De Janerio [Brazil ]");
+				$("#vac_totaltickets2").text("6212");
+				$("#vac_noofapplications2").text("8491");
+				$("#vac_avgservtime2").text("00:09:03");
+				$("#vac_avgwaittime2").text("00:24:15");
+				$("#vac_avgtat2").text("00:14:21");
+				$("#vac_firstticket2").text("8:37 AM");
+				$("#vac_totalcounter2").text("12");
+				$("#vac_activecounter2").text("4");
+
+				$("#vac_name3").text("Brasilia [Brazil ]");
+				$("#vac_totaltickets3").text("1352");
+				$("#vac_noofapplications3").text("1754");
+				$("#vac_avgservtime3").text("00:10:41");
+				$("#vac_avgwaittime3").text("00:21:30");
+				$("#vac_avgtat3").text("00:17:48");
+				$("#vac_firstticket3").text("8:37 AM");
+				$("#vac_totalcounter3").text("12");
+				$("#vac_activecounter3").text("4");
+
+				$("#vaccard4").hide();
+				//Variables for Map
+					// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+								{
+									svgPath: targetSVG,
+									title: "Sao Paulo [Brazil ]",
+									latitude:-23.6824124,
+									longitude:-46.5952992,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Sao Paulo [Brazil ]</b><br><br><b>TotalTickets:</b> 9391<br/><b>NoOfApplications:</b> 12481<br/><b>AvgServiceTime:</b> 00:13:27<br/><b>AvgWaitTime:</b> 00:36:40<br/><b>AvgTAT:</b> 00:17:42<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "Rio De Janerio [Brazil ]",
+									latitude:-22.9156912,
+									longitude:-43.449703,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Rio De Janerio [Brazil ]</b><br><br><b>TotalTickets:</b> 6212<br/><b>NoOfApplications:</b> 8491<br/><b>AvgServiceTime:</b> 00:09:03<br/><b>AvgWaitTime:</b> 00:24:15<br/><b>AvgTAT:</b> 00:12:21<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "Brasilia [Brazil ]",
+									latitude:-15.7217621,
+									longitude:-47.9382362,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Brasilia [Brazil ]</b><br><br><b>TotalTickets:</b> 1352<br/><b>NoOfApplications:</b> 1754<br/><b>AvgServiceTime:</b> 00:10:41<br/><b>AvgWaitTime:</b> 00:21:30<br/><b>AvgTAT:</b> 00:39:51<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								}
+					]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "brazilHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of BrazilDiv
+
+			function JapanDiv()	{
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("Japan");
+				$("#TotalLocations").text("1");
+				$("#TotalTickets").text("9391");
+				$("#TotalApplications").text("12481");
+
+				$("#TopLocation1").text("Tokyo [Japan ]");
+				$("#TopTAT1").text("00:13:54");
+				$("#TopLocation2").text("");
+				$("#TopTAT2").text("");
+				$("#TopLocation3").text("");
+				$("#TopTAT3").text("");
+
+				$("#WorstLocation1").text("");
+				$("#WorstTAT1").text("");
+				$("#WorstLocation2").text("");
+				$("#WorstTAT2").text("");
+				$("#WorstLocation3").text("");
+				$("#WorstTAT3").text("");
+
+				$("#vac_name1").text("Tokyo [Japan ]");
+				$("#vac_totaltickets1").text("9391");
+				$("#vac_noofapplications1").text("12481");
+				$("#vac_avgservtime1").text("00:13:27");
+				$("#vac_avgwaittime1").text("00:36:40");
+				$("#vac_avgtat1").text("00:12:54");
+				$("#vac_firstticket1").text("8:37 AM");
+				$("#vac_totalcounter1").text("12");
+				$("#vac_activecounter1").text("4");
+
+				$("#vaccard2").hide();
+				$("#vaccard3").hide();
+				$("#vaccard4").hide();
+				//Variables for Map
+					// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+								{
+									svgPath: targetSVG,
+									title: "Tokyo [Japan ]",
+									latitude:35.673343,
+									longitude:139.710388,
+									color: "red",
+									RollOverColor:"red",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Tokyo [Japan ]</b><br><br><b>TotalTickets:</b> 9391<br/><b>NoOfApplications:</b> 12481<br/><b>AvgServiceTime:</b> 00:13:27<br/><b>AvgWaitTime:</b> 00:36:40<br/><b>AvgTAT:</b> 00:13:54<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								}
+					]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "japanHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of JapanDiv
+
+			function AustraliaDiv()	{
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("Australia");
+				$("#TotalLocations").text("1");
+				$("#TotalTickets").text("7,804");
+				$("#TotalApplications").text("10,119");
+
+				$("#TopLocation1").text("Melbourne [Australia]");
+				$("#TopTAT1").text("00:25:54");
+				$("#TopLocation2").text("");
+				$("#TopTAT2").text("");
+				$("#TopLocation3").text("");
+				$("#TopTAT3").text("");
+
+				$("#WorstLocation1").text("");
+				$("#WorstTAT1").text("");
+				$("#WorstLocation2").text("");
+				$("#WorstTAT2").text("");
+				$("#WorstLocation3").text("");
+				$("#WorstTAT3").text("");
+
+				$("#vac_name1").text("Melbourne [Australia]");
+				$("#vac_totaltickets1").text("7804");
+				$("#vac_noofapplications1").text("10119");
+				$("#vac_avgservtime1").text("00:08:37");
+				$("#vac_avgwaittime1").text("00:24:58");
+				$("#vac_avgtat1").text("00:25:54");
+				$("#vac_firstticket1").text("8:37 AM");
+				$("#vac_totalcounter1").text("12");
+				$("#vac_activecounter1").text("4");
+
+				$("#vaccard2").hide();
+				$("#vaccard3").hide();
+				$("#vaccard4").hide();
+				// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+											{
+												svgPath: targetSVG,
+												title: 'Melbourne [Australia]',
+												latitude:-37.8602828,
+												longitude:145.079616,
+												color: 'orange',
+												RollOverColor:'orange',
+												rollOverScale: 3,
+												selectedScale: 3,
+												balloonText:'<b>Melbourne [Australia]</b><br><br><b>TotalTickets:</b> 7804<br/><b>NoOfApplications:</b> 10119<br/><b>AvgServiceTime:</b> 00:08:37<br/><b>AvgWaitTime:</b>00:24:58<br/><b>AvgTAT:</b> 00:25:54<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>'
+											}
+					]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "australiaHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of AustraliaDiv
+
+			function PakistanDiv()	{
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("Pakistan");
+				$("#TotalLocations").text("2");
+				$("#TotalTickets").text("32,863");
+				$("#TotalApplications").text("53,975");
+
+				$("#TopLocation1").text("Mirpur [Pakistan ]");
+				$("#TopTAT1").text("00:12:54");
+				$("#TopLocation2").text("Karachi [Pakistan ]");
+				$("#TopTAT2").text("00:14:21");
+				$("#TopLocation3").text("");
+				$("#TopTAT3").text("");
+
+				$("#WorstLocation1").text("");
+				$("#WorstTAT1").text("");
+				$("#WorstLocation2").text("");
+				$("#WorstTAT2").text("");
+				$("#WorstLocation3").text("");
+				$("#WorstTAT3").text("");
+
+				$("#vac_name1").text("Mirpur [Pakistan ]");
+				$("#vac_totaltickets1").text("9391");
+				$("#vac_noofapplications1").text("12481");
+				$("#vac_avgservtime1").text("00:13:27");
+				$("#vac_avgwaittime1").text("00:12:54");
+				$("#vac_avgtat1").text("00:25:54");
+				$("#vac_firstticket1").text("8:37 AM");
+				$("#vac_totalcounter1").text("12");
+				$("#vac_activecounter1").text("4");
+
+				$("#vac_name2").text("Karachi [Pakistan ]");
+				$("#vac_totaltickets2").text("6212");
+				$("#vac_noofapplications2").text("8491");
+				$("#vac_avgservtime2").text("00:09:03");
+				$("#vac_avgwaittime2").text("00:24:15");
+				$("#vac_avgtat2").text("00:14:21");
+				$("#vac_firstticket2").text("8:37 AM");
+				$("#vac_totalcounter2").text("12");
+				$("#vac_activecounter2").text("4");
+
+				$("#vaccard3").hide();
+				$("#vaccard4").hide();
+				// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+								{
+									svgPath: targetSVG,
+									title: "Mirpur [Pakistan ]",
+									latitude:33.1482222,
+									longitude:73.7421633,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Mirpur [Pakistan ]</b><br><br><b>TotalTickets:</b> 9391<br/><b>NoOfApplications:</b> 12481<br/><b>AvgServiceTime:</b> 00:13:27<br/><b>AvgWaitTime:</b> 00:36:40<br/><b>AvgTAT:</b> 00:12:54<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								},
+								{
+									svgPath: targetSVG,
+									title: "Karachi [Pakistan ]",
+									latitude:25.0111453,
+									longitude:67.0647043,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Karachi [Pakistan ]</b><br><br><b>TotalTickets:</b> 6212<br/><b>NoOfApplications:</b> 8491<br/><b>AvgServiceTime:</b> 00:09:03<br/><b>AvgWaitTime:</b> 00:24:15<br/><b>AvgTAT:</b> 00:14:21<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								}
+				]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "pakistanHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of PakistanDiv
+
+			function TaiwanDiv()	{
+				$("#mainvactab").hide();
+				$("#vaccard1").show();
+				$("#vaccard2").show();
+				$("#vaccard3").show();
+				$("#vaccard4").show();
+				$("#mapcard").css("width", "70%");
+				$("#mainvactab").fadeIn(2000);
+				$("#CountryName").text("Taiwan");
+				$("#TotalLocations").text("1");
+				$("#TotalTickets").text("2,863");
+				$("#TotalApplications").text("3,975");
+
+				$("#TopLocation1").text("Taipei [Taiwan ]");
+				$("#TopTAT1").text("00:12:54");
+				$("#TopLocation2").text("");
+				$("#TopTAT2").text("");
+				$("#TopLocation3").text("");
+				$("#TopTAT3").text("");
+
+				$("#WorstLocation1").text("");
+				$("#WorstTAT1").text("");
+				$("#WorstLocation2").text("");
+				$("#WorstTAT2").text("");
+				$("#WorstLocation3").text("");
+				$("#WorstTAT3").text("");
+
+				$("#vac_name1").text("Taipei [Taiwan ]");
+				$("#vac_totaltickets1").text("9391");
+				$("#vac_noofapplications1").text("12481");
+				$("#vac_avgservtime1").text("00:13:27");
+				$("#vac_avgwaittime1").text("00:12:54");
+				$("#vac_avgtat1").text("00:25:54");
+				$("#vac_firstticket1").text("8:37 AM");
+				$("#vac_totalcounter1").text("12");
+				$("#vac_activecounter1").text("4");
+
+				$("#vaccard2").hide();
+				$("#vaccard3").hide();
+				$("#vaccard4").hide();
+				// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+								{
+									svgPath: targetSVG,
+									title: "Taipei [Taiwan ]",
+									latitude:25.0854062,
+									longitude:121.5615012,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Taipei [Taiwan ]</b><br><br><b>TotalTickets:</b> 9391<br/><b>NoOfApplications:</b> 12481<br/><b>AvgServiceTime:</b> 00:13:27<br/><b>AvgWaitTime:</b> 00:36:40<br/><b>AvgTAT:</b> 00:12:54<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								}
+					]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    "theme": "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "taiwanHigh",
+							images: datapoints
+						},
+
+						zoomControl:{maxZoomLevel:3000,left:10,buttonFillColor:"#15A892"},
+						areasSettings:{unlistedAreasColor:"#00305D",rollOverColor:"#325E84",rollOverOutlineColor:"#325E84"},
+					});
+			}//end of TaiwanDiv
+
+			function QatarDiv()	{
+				$("#mainvactab").hide();
+				
+				// svg path for target icon
+					var targetSVG = "M9,0C4.029,0,0,4.029,0,9s4.029,9,9,9s9-4.029,9-9S13.971,0,9,0z M9,15.93 c-3.83,0-6.93-3.1-6.93-6.93S5.17,2.07,9,2.07s6.93,3.1,6.93,6.93S12.83,15.93,9,15.93 M12.5,9c0,1.933-1.567,3.5-3.5,3.5S5.5,10.933,5.5,9S7.067,5.5,9,5.5 S12.5,7.067,12.5,9z";
+					// svg path for plane icon
+					var planeSVG = "M19.671,8.11l-2.777,2.777l-3.837-0.861c0.362-0.505,0.916-1.683,0.464-2.135c-0.518-0.517-1.979,0.278-2.305,0.604l-0.913,0.913L7.614,8.804l-2.021,2.021l2.232,1.061l-0.082,0.082l1.701,1.701l0.688-0.687l3.164,1.504L9.571,18.21H6.413l-1.137,1.138l3.6,0.948l1.83,1.83l0.947,3.598l1.137-1.137V21.43l3.725-3.725l1.504,3.164l-0.687,0.687l1.702,1.701l0.081-0.081l1.062,2.231l2.02-2.02l-0.604-2.689l0.912-0.912c0.326-0.326,1.121-1.789,0.604-2.306c-0.452-0.452-1.63,0.101-2.135,0.464l-0.861-3.838l2.777-2.777c0.947-0.947,3.599-4.862,2.62-5.839C24.533,4.512,20.618,7.163,19.671,8.11z";
+					var datapoints = [
+								{
+									svgPath: targetSVG,
+									title: "Qatar",
+									latitude:25.0854062,
+									longitude:121.5615012,
+									color: "green",
+									RollOverColor:"green",
+									rollOverScale: 3,
+									selectedScale: 3,
+									balloonText:"<b>Qatar</b><br><br><b>TotalTickets:</b> 9391<br/><b>NoOfApplications:</b> 12481<br/><b>AvgServiceTime:</b> 00:13:27<br/><b>AvgWaitTime:</b> 00:36:40<br/><b>AvgTAT:</b> 00:12:54<br/><b>First Ticket Logged at:</b> 8:37 AM<br/><b>Total Counters:</b>12<br/><b>Active Counters:</b>4<br/>"
+											
+								}
+					]
+					AmCharts.makeChart("mapdiv", {
+						type: "map",
+					    theme: "dark",
+					    pathToImages: "ammap/ammap/images/",
+					    smallMap: {},
+					    mouseWheelZoomEnabled: true,
+						zoomDuration: 0.2,
+						dataProvider: {
+							map: "qatarHigh",
+							images: datapoints
+						}
+					});
+			}//end of QatarDiv
+
+	</script>
+<body onload="WorldDiv()">
+	<table style="width: 100%; height: 100%; color: white; font-size: 100%">
+		<tr style="width: 100%; height: 10%; background-color: #00305D">
+            <td style="width: 100%; height: 100%; color: white; font-size: 120%">
+                <center>
+                	<span style="float:left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/vfs-global-logo.png" width="100px" height="40px"><b>VFS Global - Reports</b></span>
+                	<span style="float:right">Location:
+                    <select id="LocationSelect" style="font-size: 100%">
+                    <option>World</option>
+                    <option>Australia</option>
+                    <option>Bangladesh</option>
+                    <option>Brazil</option>
+                    <option>Canada</option>
+                    <option>India</option>
+                    <option>Japan</option>
+                    <option>Pakistan</option>
+                    <option>Sri Lanka</option>
+                    <option>Taiwan</option>
+                    <option>Qatar</option>
+                    </select>&nbsp;&nbsp;&nbsp;
+                    <span><button onclick="getdata();" id="getdata">Fetch</button></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                </center>
+            </td>
+        </tr>
+        <tr style="width: 100%; height: 90%">
+         	<td>
+         		<div id="tabcard">
+	         		<table id="statstabcard" style="width: 95%; height: 100%;">
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;border-radius:10px"><br/></td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #FF9C00;color:#00305D"><br><b><span id="CountryName"></span></b></td>
+	         				<td style="width:100%;background-color: #FF9C00;border-top-right-radius:0.5em;"><br><i></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b>Total Locations :</b></td>
+	         				<td style="width:100%;background-color: #00305D;"><br><i><span id="TotalLocations"></span></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b>Total Tickets:</b></td>
+	         				<td style="width:100%;background-color: #00305D"><br><i><span id="TotalTickets"></span>&nbsp;&nbsp;&nbsp;</i></td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b>Total No. Of Applications:</b></td>
+	         				<td style="width:100%;background-color: #00305D"><br><i><span id="TotalApplications"></span>&nbsp;&nbsp;&nbsp;</i></td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br/></td>
+	         				<td style="width:100%;background-color: #00305D;"><br/></td>
+	         			</tr>
+	         		</table>
+	         		<table id="statstopcard" style="width: 95%; height: 100%;">
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;border-radius:10px"><br/></td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #FF9C00;color:#00305D"><br><b>Best Performing VACs</b><br><font size="1"> (As per Avg.TAT)</span></font></td>
+	         				<td style="width:100%;background-color: #FF9C00;border-top-right-radius:0.5em;"><br><i></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b><span id="TopLocation1">&gt;&nbsp;</b></td>
+	         				<td style="width:100%;background-color: #00305D;"><br><i><span id="TopTAT1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b><span id="TopLocation2">&gt;&nbsp;</b></td>
+	         				<td style="width:100%;background-color: #00305D;"><br><i><span id="TopTAT2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b><span id="TopLocation3">&gt;&nbsp;</b></td>
+	         				<td style="width:100%;background-color: #00305D;"><br><i><span id="TopTAT3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br/></td>
+	         				<td style="width:100%;background-color: #00305D;"><br/></td>
+	         			</tr>
+	         		</table>
+	         		<table id="statsworstcard" style="width: 95%; height: 100%;">
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;border-radius:10px"><br/></td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #FF9C00;color:#00305D"><br><b>Least Performing VACs</b><br><font size="1"> (As per Avg.TAT)</span></font></td>
+	         				<td style="width:100%;background-color: #FF9C00;border-top-right-radius:0.5em;"><br><i></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b><span id="WorstLocation1">&gt;&nbsp;</b></td>
+	         				<td style="width:100%;background-color: #00305D;"><br><i><span id="WorstTAT1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b><span id="WorstLocation2">&gt;&nbsp;</b></td>
+	         				<td style="width:100%;background-color: #00305D;"><br><i><span id="WorstTAT2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br><b><span id="WorstLocation3">&gt;&nbsp;</b></td>
+	         				<td style="width:100%;background-color: #00305D;"><br><i><span id="WorstTAT3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+	         			</tr>
+	         			<tr style="width: 100%; height: 100%">
+	         				<td style="width:100%;background-color: #00305D"><br/></td>
+	         				<td style="width:100%;background-color: #00305D;"><br/></td>
+	         			</tr>
+	         		</table>
+         		</div>
+         		<div id="mapcard"><br/>
+                	<div id="mapdiv"></div>
+            	</div>
+            	<div id="mainvactab"><br/>         		
+            		<div id="vaccard" style="overflow:scroll">          	
+	                	<table id="vaccard1" style="width: 95%;" align="center">
+		         			<tr style="width: 100%; height: 100%" >
+		         				<td style="width:100%;border-radius:10px"><br/></td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #FF9C00;border-top-left-radius:0.5em;color:#00305D"><span id="vac_name1"><b></b></span><br></td>
+		         				<td style="width:100%;background-color: #FF9C00;border-top-right-radius:0.5em;">
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Total Tickets:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_totaltickets1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>No Of Applications:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_noofapplications1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg Service Time:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgservtime1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg Wait Time:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgwaittime1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg TAT:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgtat1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>First Ticket Logged:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_firstticket1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Total Counters:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_totalcounter1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Active Counters:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_activecounter1"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"></td>
+		         				<td style="width:100%;background-color: #00305D;"></td>
+		         			</tr>
+		         		</table>
+		         		<table id="vaccard2" style="width: 95%;" align="center">
+		         			<tr style="width: 100%; height: 100%" >
+		         				<td style="width:100%;border-radius:10px"><br/></td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #FF9C00;border-top-left-radius:0.5em;color:#00305D"><span id="vac_name2"><b></b></span><br></td>
+		         				<td style="width:100%;background-color: #FF9C00;border-top-right-radius:0.5em;">
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Total Tickets:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_totaltickets2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>No Of Applications:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_noofapplications2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg Service Time:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgservtime2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg Wait Time:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgwaittime2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg TAT:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgtat2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>First Ticket Logged:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_firstticket2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Total Counters:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_totalcounter2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Active Counters:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_activecounter2"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"></td>
+		         				<td style="width:100%;background-color: #00305D;"></td>
+		         			</tr>
+		         		</table>
+		         		<table id="vaccard3" style="width: 95%;" align="center">
+		         			<tr style="width: 100%; height: 100%" >
+		         				<td style="width:100%;border-radius:10px"><br/></td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #FF9C00;border-top-left-radius:0.5em;color:#00305D"><span id="vac_name3"><b></b></span><br></td>
+		         				<td style="width:100%;background-color: #FF9C00;border-top-right-radius:0.5em;">
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Total Tickets:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_totaltickets3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>No Of Applications:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_noofapplications3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg Service Time:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgservtime3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg Wait Time:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgwaittime3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg TAT:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgtat3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>First Ticket Logged:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_firstticket3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Total Counters:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_totalcounter3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Active Counters:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_activecounter3"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"></td>
+		         				<td style="width:100%;background-color: #00305D;"></td>
+		         			</tr>
+		         		</table>
+		         		<table id="vaccard4" style="width: 95%;" align="center">
+		         			<tr style="width: 100%; height: 100%" >
+		         				<td style="width:100%;border-radius:10px"><br/></td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #FF9C00;border-top-left-radius:0.5em;color:#00305D"><span id="vac_name4"><b></b></span><br></td>
+		         				<td style="width:100%;background-color: #FF9C00;border-top-right-radius:0.5em;">
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Total Tickets:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_totaltickets4"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>No Of Applications:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_noofapplications4"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg Service Time:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgservtime4"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg Wait Time:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgwaittime4"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Avg TAT:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_avgtat4"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>First Ticket Logged:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_firstticket4"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Total Counters:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_totalcounter4"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"><b><span>Active Counters:&nbsp;</span></b></td>
+		         				<td style="width:100%;background-color: #00305D;"><i><span id="vac_activecounter4"></span></i>&nbsp;&nbsp;&nbsp;</td>
+		         			</tr>
+		         			<tr style="width: 100%; height: 100%">
+		         				<td style="width:100%;background-color: #00305D"></td>
+		         				<td style="width:100%;background-color: #00305D;"></td>
+		         			</tr>
+		         		</table>
+	         		</div>
+            	</div>
+         	</td> 
+        </tr>
+	</table>	
+</body>

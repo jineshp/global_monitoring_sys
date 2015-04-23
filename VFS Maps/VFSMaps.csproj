@@ -1,0 +1,840 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AFF030B1-753D-40A3-9B46-AF86FB107F14}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VFSMaps</RootNamespace>
+    <AssemblyName>VFSMaps</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ammap\ammap\ammap.css" />
+    <Content Include="ammap\ammap\ammap.js" />
+    <Content Include="ammap\ammap\ammap_amcharts_extension.js" />
+    <Content Include="ammap\ammap\exporting\amexport.js" />
+    <Content Include="ammap\ammap\exporting\canvg.js" />
+    <Content Include="ammap\ammap\exporting\filesaver.js" />
+    <Content Include="ammap\ammap\exporting\jspdf.js" />
+    <Content Include="ammap\ammap\exporting\jspdf.plugin.addimage.js" />
+    <Content Include="ammap\ammap\exporting\rgbcolor.js" />
+    <Content Include="ammap\ammap\images\arrowDown.gif" />
+    <Content Include="ammap\ammap\images\arrowUp.gif" />
+    <Content Include="ammap\ammap\images\export.png" />
+    <Content Include="ammap\ammap\images\homeIcon.gif" />
+    <Content Include="ammap\ammap\images\minus.gif" />
+    <Content Include="ammap\ammap\images\panDown.gif" />
+    <Content Include="ammap\ammap\images\panLeft.gif" />
+    <Content Include="ammap\ammap\images\panRight.gif" />
+    <Content Include="ammap\ammap\images\panUp.gif" />
+    <Content Include="ammap\ammap\images\plus.gif" />
+    <Content Include="ammap\ammap\images\xIcon.gif" />
+    <Content Include="ammap\ammap\images\xIconH.gif" />
+    <Content Include="ammap\ammap\maps\js\albaniaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\albaniaLow.js" />
+    <Content Include="ammap\ammap\maps\js\andorraHigh.js" />
+    <Content Include="ammap\ammap\maps\js\andorraLow.js" />
+    <Content Include="ammap\ammap\maps\js\angolaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\angolaLow.js" />
+    <Content Include="ammap\ammap\maps\js\argentinaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\argentinaLow.js" />
+    <Content Include="ammap\ammap\maps\js\armeniaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\armeniaLow.js" />
+    <Content Include="ammap\ammap\maps\js\australiaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\australiaLow.js" />
+    <Content Include="ammap\ammap\maps\js\austriaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\austriaLow.js" />
+    <Content Include="ammap\ammap\maps\js\bangladeshHigh.js" />
+    <Content Include="ammap\ammap\maps\js\bangladeshLow.js" />
+    <Content Include="ammap\ammap\maps\js\belarusHigh.js" />
+    <Content Include="ammap\ammap\maps\js\belarusLow.js" />
+    <Content Include="ammap\ammap\maps\js\belgiumHigh.js" />
+    <Content Include="ammap\ammap\maps\js\belgiumLow.js" />
+    <Content Include="ammap\ammap\maps\js\belizeHigh.js" />
+    <Content Include="ammap\ammap\maps\js\belizeLow.js" />
+    <Content Include="ammap\ammap\maps\js\bhutanHigh.js" />
+    <Content Include="ammap\ammap\maps\js\bhutanLow.js" />
+    <Content Include="ammap\ammap\maps\js\boliviaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\boliviaLow.js" />
+    <Content Include="ammap\ammap\maps\js\botswanaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\botswanaLow.js" />
+    <Content Include="ammap\ammap\maps\js\brazilHigh.js" />
+    <Content Include="ammap\ammap\maps\js\brazilLow.js" />
+    <Content Include="ammap\ammap\maps\js\bulgariaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\bulgariaLow.js" />
+    <Content Include="ammap\ammap\maps\js\canadaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\canadaLow.js" />
+    <Content Include="ammap\ammap\maps\js\chileHigh.js" />
+    <Content Include="ammap\ammap\maps\js\chileLow.js" />
+    <Content Include="ammap\ammap\maps\js\chinaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\chinaLow.js" />
+    <Content Include="ammap\ammap\maps\js\colombiaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\colombiaLow.js" />
+    <Content Include="ammap\ammap\maps\js\continentsHigh.js" />
+    <Content Include="ammap\ammap\maps\js\continentsLow.js" />
+    <Content Include="ammap\ammap\maps\js\croatiaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\croatiaLow.js" />
+    <Content Include="ammap\ammap\maps\js\czechRepublicHigh.js" />
+    <Content Include="ammap\ammap\maps\js\czechRepublicLow.js" />
+    <Content Include="ammap\ammap\maps\js\denmarkHigh.js" />
+    <Content Include="ammap\ammap\maps\js\denmarkLow.js" />
+    <Content Include="ammap\ammap\maps\js\finlandHigh.js" />
+    <Content Include="ammap\ammap\maps\js\finlandLow.js" />
+    <Content Include="ammap\ammap\maps\js\franceDepartmentsHigh.js" />
+    <Content Include="ammap\ammap\maps\js\franceDepartmentsLow.js" />
+    <Content Include="ammap\ammap\maps\js\franceHigh.js" />
+    <Content Include="ammap\ammap\maps\js\franceLow.js" />
+    <Content Include="ammap\ammap\maps\js\germanyHigh.js" />
+    <Content Include="ammap\ammap\maps\js\germanyLow.js" />
+    <Content Include="ammap\ammap\maps\js\greeceHigh.js" />
+    <Content Include="ammap\ammap\maps\js\greeceLow.js" />
+    <Content Include="ammap\ammap\maps\js\hongKongHigh.js" />
+    <Content Include="ammap\ammap\maps\js\hongKongLow.js" />
+    <Content Include="ammap\ammap\maps\js\indiaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\indiaLow.js" />
+    <Content Include="ammap\ammap\maps\js\irelandHigh.js" />
+    <Content Include="ammap\ammap\maps\js\irelandLow.js" />
+    <Content Include="ammap\ammap\maps\js\israelHigh.js" />
+    <Content Include="ammap\ammap\maps\js\israelLow.js" />
+    <Content Include="ammap\ammap\maps\js\israelPalestineHigh.js" />
+    <Content Include="ammap\ammap\maps\js\israelPalestineLow.js" />
+    <Content Include="ammap\ammap\maps\js\italyHigh.js" />
+    <Content Include="ammap\ammap\maps\js\italyLow.js" />
+    <Content Include="ammap\ammap\maps\js\japanHigh.js" />
+    <Content Include="ammap\ammap\maps\js\japanLow.js" />
+    <Content Include="ammap\ammap\maps\js\kosovoHigh.js" />
+    <Content Include="ammap\ammap\maps\js\kosovoLow.js" />
+    <Content Include="ammap\ammap\maps\js\lithuaniaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\lithuaniaLow.js" />
+    <Content Include="ammap\ammap\maps\js\macedoniaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\macedoniaLow.js" />
+    <Content Include="ammap\ammap\maps\js\mexicoHigh.js" />
+    <Content Include="ammap\ammap\maps\js\mexicoLow.js" />
+    <Content Include="ammap\ammap\maps\js\montenegroHigh.js" />
+    <Content Include="ammap\ammap\maps\js\montenegroLow.js" />
+    <Content Include="ammap\ammap\maps\js\nepalHigh.js" />
+    <Content Include="ammap\ammap\maps\js\nepalLow.js" />
+    <Content Include="ammap\ammap\maps\js\netherlandsHigh.js" />
+    <Content Include="ammap\ammap\maps\js\netherlandsLow.js" />
+    <Content Include="ammap\ammap\maps\js\newZealandHigh.js" />
+    <Content Include="ammap\ammap\maps\js\newZealandLow.js" />
+    <Content Include="ammap\ammap\maps\js\norwayHigh.js" />
+    <Content Include="ammap\ammap\maps\js\norwayLow.js" />
+    <Content Include="ammap\ammap\maps\js\pakistanHigh.js" />
+    <Content Include="ammap\ammap\maps\js\pakistanLow.js" />
+    <Content Include="ammap\ammap\maps\js\palestineHigh.js" />
+    <Content Include="ammap\ammap\maps\js\palestineLow.js" />
+    <Content Include="ammap\ammap\maps\js\philippinesHigh.js" />
+    <Content Include="ammap\ammap\maps\js\philippinesLow.js" />
+    <Content Include="ammap\ammap\maps\js\polandHigh.js" />
+    <Content Include="ammap\ammap\maps\js\polandLow.js" />
+    <Content Include="ammap\ammap\maps\js\romaniaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\romaniaLow.js" />
+    <Content Include="ammap\ammap\maps\js\russiaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\russiaLow.js" />
+    <Content Include="ammap\ammap\maps\js\saudiArabiaLow.js" />
+    <Content Include="ammap\ammap\maps\js\serbiaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\serbiaLow.js" />
+    <Content Include="ammap\ammap\maps\js\serbiaNoKosovoHigh.js" />
+    <Content Include="ammap\ammap\maps\js\serbiaNoKosovoLow.js" />
+    <Content Include="ammap\ammap\maps\js\singaporeHigh.js" />
+    <Content Include="ammap\ammap\maps\js\singaporeLow.js" />
+    <Content Include="ammap\ammap\maps\js\southKoreaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\southKoreaLow.js" />
+    <Content Include="ammap\ammap\maps\js\spain2High.js" />
+    <Content Include="ammap\ammap\maps\js\spain2Low.js" />
+    <Content Include="ammap\ammap\maps\js\spainHigh.js" />
+    <Content Include="ammap\ammap\maps\js\spainLow.js" />
+    <Content Include="ammap\ammap\maps\js\spainProvincesHigh.js" />
+    <Content Include="ammap\ammap\maps\js\spainProvincesLow.js" />
+    <Content Include="ammap\ammap\maps\js\sriLankaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\sriLankaLow.js" />
+    <Content Include="ammap\ammap\maps\js\swedenHigh.js" />
+    <Content Include="ammap\ammap\maps\js\swedenLow.js" />
+    <Content Include="ammap\ammap\maps\js\switzerlandHigh.js" />
+    <Content Include="ammap\ammap\maps\js\switzerlandLow.js" />
+    <Content Include="ammap\ammap\maps\js\syriaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\syriaLow.js" />
+    <Content Include="ammap\ammap\maps\js\taiwanHigh.js" />
+    <Content Include="ammap\ammap\maps\js\taiwanLow.js" />
+    <Content Include="ammap\ammap\maps\js\turkeyHigh.js" />
+    <Content Include="ammap\ammap\maps\js\turkeyLow.js" />
+    <Content Include="ammap\ammap\maps\js\ukraineHigh.js" />
+    <Content Include="ammap\ammap\maps\js\ukraineLow.js" />
+    <Content Include="ammap\ammap\maps\js\unitedKingdomHigh.js" />
+    <Content Include="ammap\ammap\maps\js\unitedKingdomLow.js" />
+    <Content Include="ammap\ammap\maps\js\usa2High.js" />
+    <Content Include="ammap\ammap\maps\js\usa2Low.js" />
+    <Content Include="ammap\ammap\maps\js\usaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\usaLow.js" />
+    <Content Include="ammap\ammap\maps\js\usaMercatorHigh.js" />
+    <Content Include="ammap\ammap\maps\js\usaMercatorLow.js" />
+    <Content Include="ammap\ammap\maps\js\worldHigh.js" />
+    <Content Include="ammap\ammap\maps\js\worldLow.js" />
+    <Content Include="ammap\ammap\maps\js\worldRussiaSplitHigh.js" />
+    <Content Include="ammap\ammap\maps\js\worldRussiaSplitLow.js" />
+    <Content Include="ammap\ammap\maps\js\worldRussiaSplitWithAntarcticaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\worldRussiaSplitWithAntarcticaLow.js" />
+    <Content Include="ammap\ammap\maps\js\worldWithAntarcticaHigh.js" />
+    <Content Include="ammap\ammap\maps\js\worldWithAntarcticaLow.js" />
+    <Content Include="ammap\ammap\maps\svg\albaniaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\albaniaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\andorraHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\andorraLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\angolaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\angolaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\argentinaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\argentinaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\armeniaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\armeniaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\australiaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\australiaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\austriaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\austriaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\bangladeshHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\bangladeshLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\belarusHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\belarusLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\belgiumHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\belgiumLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\belizeHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\belizeLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\bhutanHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\bhutanLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\boliviaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\boliviaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\botswanaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\botswanaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\brazilHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\brazilLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\bulgariaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\bulgariaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\canadaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\canadaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\chileHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\chileLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\chinaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\chinaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\colombiaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\colombiaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\continentsHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\continentsLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\croatiaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\croatiaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\czechRepublicHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\czechRepublicLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\denmarkHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\denmarkLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\finlandHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\finlandLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\franceDepartmentsHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\franceDepartmentsLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\franceHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\franceLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\germanyHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\germanyLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\greeceHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\greeceLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\hongKongHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\hongKongLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\indiaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\indiaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\irelandHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\irelandLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\israelHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\israelLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\israelPalestineHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\israelPalestineLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\italyHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\italyLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\japanHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\japanLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\kosovoHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\kosovoLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\lithuaniaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\lithuaniaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\macedoniaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\macedoniaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\mexicoHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\mexicoLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\montenegroHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\montenegroLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\nepalHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\nepalLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\netherlandsHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\netherlandsLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\newZealandHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\newZealandLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\norwayHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\norwayLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\pakistanHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\pakistanLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\palestineHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\palestineLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\philippinesHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\philippinesLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\polandHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\polandLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\romaniaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\romaniaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\russiaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\russiaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\saudiArabiaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\serbiaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\serbiaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\serbiaNoKosovoHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\serbiaNoKosovoLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\singaporeHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\singaporeLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\southKoreaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\southKoreaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\spain2High.svg" />
+    <Content Include="ammap\ammap\maps\svg\spain2Low.svg" />
+    <Content Include="ammap\ammap\maps\svg\spainHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\spainLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\spainProvincesHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\spainProvincesLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\sriLankaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\sriLankaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\swedenHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\swedenLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\switzerlandHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\switzerlandLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\syriaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\syriaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\taiwanHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\taiwanLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\turkeyHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\turkeyLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\ukraineHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\ukraineLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\unitedKingdomHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\unitedKingdomLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\usa2High.svg" />
+    <Content Include="ammap\ammap\maps\svg\usa2Low.svg" />
+    <Content Include="ammap\ammap\maps\svg\usaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\usaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\usaMercatorHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\usaMercatorLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\worldHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\worldLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\worldRussiaSplitHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\worldRussiaSplitLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\worldRussiaSplitWithAntarcticaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\worldRussiaSplitWithAntarcticaLow.svg" />
+    <Content Include="ammap\ammap\maps\svg\worldWithAntarcticaHigh.svg" />
+    <Content Include="ammap\ammap\maps\svg\worldWithAntarcticaLow.svg" />
+    <Content Include="ammap\ammap\patterns\black\pattern1.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern10.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern11.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern12.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern13.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern14.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern15.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern16.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern17.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern18.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern19.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern2.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern20.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern21.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern3.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern4.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern5.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern6.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern7.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern8.png" />
+    <Content Include="ammap\ammap\patterns\black\pattern9.png" />
+    <Content Include="ammap\ammap\patterns\chalk\pattern1.jpg" />
+    <Content Include="ammap\ammap\patterns\chalk\pattern1r.jpg" />
+    <Content Include="ammap\ammap\patterns\chalk\pattern2.jpg" />
+    <Content Include="ammap\ammap\patterns\chalk\pattern3.jpg" />
+    <Content Include="ammap\ammap\patterns\chalk\pattern4.jpg" />
+    <Content Include="ammap\ammap\patterns\chalk\pattern5.jpg" />
+    <Content Include="ammap\ammap\patterns\chalk\pattern6.jpg" />
+    <Content Include="ammap\ammap\patterns\white\pattern1.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern10.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern11.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern12.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern13.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern14.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern15.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern16.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern17.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern18.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern19.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern2.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern20.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern21.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern3.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern4.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern5.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern6.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern7.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern8.png" />
+    <Content Include="ammap\ammap\patterns\white\pattern9.png" />
+    <Content Include="ammap\ammap\themes\chalk.js" />
+    <Content Include="ammap\ammap\themes\dark.js" />
+    <Content Include="ammap\ammap\themes\light.js" />
+    <Content Include="ammap\changeLog.txt" />
+    <Content Include="ammap\GIS data\ne_50m_admin_0_countries.README.html" />
+    <Content Include="ammap\GIS data\ne_50m_admin_0_countries.VERSION.txt" />
+    <Content Include="ammap\images\logo.png" />
+    <Content Include="ammap\images\style.css" />
+    <Content Include="ammap\index.html" />
+    <Content Include="ammap\licence.txt" />
+    <Content Include="ammap\samples\developerMode.html" />
+    <Content Include="ammap\samples\drillDownMap.html" />
+    <Content Include="ammap\samples\flightRoutes.html" />
+    <Content Include="ammap\samples\groupedCountries.html" />
+    <Content Include="ammap\samples\heatMap.html" />
+    <Content Include="ammap\samples\images\board.jpg" />
+    <Content Include="ammap\samples\mapWithPatterns.html" />
+    <Content Include="ammap\samples\singleCountryMap.html" />
+    <Content Include="ammap\samples\style.css" />
+    <Content Include="ammap\samples\worldCapitals.html" />
+    <Content Include="ammap\samples\zoomingToCountries.html" />
+    <Content Include="ammap\samples\_exporting_to_png.html" />
+    <Content Include="ammap\samples\_JSON_developerMode.html" />
+    <Content Include="ammap\samples\_JSON_drillDownMap.html" />
+    <Content Include="ammap\samples\_JSON_flightRoutes.html" />
+    <Content Include="ammap\samples\_JSON_groupedCountries.html" />
+    <Content Include="ammap\samples\_JSON_heatMap.html" />
+    <Content Include="ammap\samples\_JSON_mapWithPatterns.html" />
+    <Content Include="ammap\samples\_JSON_singleCountryMap.html" />
+    <Content Include="ammap\samples\_JSON_worldCapitals.html" />
+    <Content Include="ammap\samples\_JSON_zoomingToCountries.html" />
+    <Content Include="ammap\samples\_usingThemes.html" />
+    <Content Include="ammap\thirdPartySoftwareList.txt" />
+    <Content Include="bin\VFS Maps.dll" />
+    <Content Include="bin\VFS Maps.pdb" />
+    <Content Include="css\theme.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="images\140x140.gif" />
+    <Content Include="images\170x170.gif" />
+    <Content Include="images\loader.GIF" />
+    <Content Include="images\background.png" />
+    <Content Include="images\black-Linen.png" />
+    <Content Include="images\blue-paper.png" />
+    <Content Include="images\bluedot.png" />
+    <Content Include="images\extra_clean_paper.png" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\flags_preview_large.png" />
+    <Content Include="images\furley_bg.png" />
+    <Content Include="images\greendot.png" />
+    <Content Include="images\isllogo.png" />
+    <Content Include="images\islpng.png" />
+    <Content Include="images\Loading.gif" />
+    <Content Include="images\orangedot.png" />
+    <Content Include="images\reddot.png" />
+    <Content Include="images\subtle_surface.png" />
+    <Content Include="images\vfs-global-logo.png" />
+    <Content Include="js\jquery-1.10.2.js" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="jquery-ui.js" />
+    <Content Include="lib\bootstrap\css\bootstrap.css" />
+    <Content Include="lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="lib\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="lib\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="lib\bootstrap\js\bootstrap.js" />
+    <Content Include="lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="lib\font-awesome\.gitignore" />
+    <Content Include="lib\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="lib\font-awesome\css\font-awesome.css" />
+    <Content Include="lib\font-awesome\docs\assets\css\font-awesome-ie7.css" />
+    <Content Include="lib\font-awesome\docs\assets\css\font-awesome.css" />
+    <Content Include="lib\font-awesome\docs\assets\css\prettify.css" />
+    <Content Include="lib\font-awesome\docs\assets\css\site.css" />
+    <Content Include="lib\font-awesome\docs\assets\font\fontawesome-webfont.svg" />
+    <Content Include="lib\font-awesome\docs\assets\ico\favicon.ico" />
+    <Content Include="lib\font-awesome\docs\assets\js\backbone.min.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\index\index.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\jquery-1.7.1.min.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\prettify.min.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-alert.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-button.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-carousel.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-collapse.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-dropdown.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-modal.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-popover.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-scrollspy.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-tab.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-tooltip.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-transition.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-typeahead.js" />
+    <Content Include="lib\font-awesome\docs\assets\js\underscore.min.js" />
+    <Content Include="lib\font-awesome\docs\index.html" />
+    <Content Include="lib\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="lib\fullcalendar-1.5.3\changelog.txt" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\agenda-views.html" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\basic-views.html" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\cupertino\theme.css" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\default.html" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\external-dragging.html" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\gcal.html" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\json.html" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\selectable.html" />
+    <Content Include="lib\fullcalendar-1.5.3\demos\theme.html" />
+    <Content Include="lib\fullcalendar-1.5.3\fullcalendar\fullcalendar.css" />
+    <Content Include="lib\fullcalendar-1.5.3\fullcalendar\fullcalendar.js" />
+    <Content Include="lib\fullcalendar-1.5.3\fullcalendar\fullcalendar.min.js" />
+    <Content Include="lib\fullcalendar-1.5.3\fullcalendar\fullcalendar.print.css" />
+    <Content Include="lib\fullcalendar-1.5.3\fullcalendar\gcal.js" />
+    <Content Include="lib\fullcalendar-1.5.3\GPL-LICENSE.txt" />
+    <Content Include="lib\fullcalendar-1.5.3\jquery\jquery-1.7.1.min.js" />
+    <Content Include="lib\fullcalendar-1.5.3\jquery\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="lib\fullcalendar-1.5.3\MIT-LICENSE.txt" />
+    <Content Include="lib\jquery-1.7.2.min.js" />
+    <Content Include="lib\jquery-1.8.1.min.js" />
+    <Content Include="lib\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="lib\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="lib\lib\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="lib\lib\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="lib\lib\bootstrap\js\bootstrap.js" />
+    <Content Include="lib\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="lib\lib\font-awesome\.gitignore" />
+    <Content Include="lib\lib\font-awesome\css\font-awesome-ie7.css" />
+    <Content Include="lib\lib\font-awesome\css\font-awesome.css" />
+    <Content Include="lib\lib\font-awesome\docs\assets\css\font-awesome-ie7.css" />
+    <Content Include="lib\lib\font-awesome\docs\assets\css\font-awesome.css" />
+    <Content Include="lib\lib\font-awesome\docs\assets\css\prettify.css" />
+    <Content Include="lib\lib\font-awesome\docs\assets\css\site.css" />
+    <Content Include="lib\lib\font-awesome\docs\assets\font\fontawesome-webfont.svg" />
+    <Content Include="lib\lib\font-awesome\docs\assets\ico\favicon.ico" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\backbone.min.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\index\index.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\jquery-1.7.1.min.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\prettify.min.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-alert.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-button.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-carousel.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-collapse.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-dropdown.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-modal.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-popover.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-scrollspy.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-tab.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-tooltip.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-transition.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\tw-bs-201\bootstrap-typeahead.js" />
+    <Content Include="lib\lib\font-awesome\docs\assets\js\underscore.min.js" />
+    <Content Include="lib\lib\font-awesome\docs\index.html" />
+    <Content Include="lib\lib\font-awesome\font\fontawesome-webfont.svg" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\changelog.txt" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\agenda-views.html" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\basic-views.html" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\cupertino\theme.css" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\default.html" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\external-dragging.html" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\gcal.html" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\json.html" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\selectable.html" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\demos\theme.html" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\fullcalendar\fullcalendar.css" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\fullcalendar\fullcalendar.js" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\fullcalendar\fullcalendar.min.js" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\fullcalendar\fullcalendar.print.css" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\fullcalendar\gcal.js" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\GPL-LICENSE.txt" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\jquery\jquery-1.7.1.min.js" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\jquery\jquery-ui-1.8.17.custom.min.js" />
+    <Content Include="lib\lib\fullcalendar-1.5.3\MIT-LICENSE.txt" />
+    <Content Include="lib\lib\jquery-1.7.2.min.js" />
+    <Content Include="lib\lib\jquery-1.8.1.min.js" />
+    <Content Include="stylesheets\elements.css" />
+    <Content Include="stylesheets\theme.css" />
+    <Content Include="vfsmaps.html" />
+    <None Include="Web References\VFSMapsService\Service.disco" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VFSMapsService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ammap\GIS data\ne_50m_admin_0_countries.dbf" />
+    <None Include="ammap\GIS data\ne_50m_admin_0_countries.prj" />
+    <None Include="ammap\GIS data\ne_50m_admin_0_countries.shp" />
+    <None Include="ammap\GIS data\ne_50m_admin_0_countries.shx" />
+    <None Include="lib\.DS_Store" />
+    <None Include="lib\font-awesome\docs\assets\font\fontawesome-webfont.eot" />
+    <None Include="lib\font-awesome\docs\assets\font\fontawesome-webfont.ttf" />
+    <None Include="lib\font-awesome\docs\assets\font\fontawesome-webfont.woff" />
+    <None Include="lib\font-awesome\docs\assets\font\museo_slab_300-webfont.eot" />
+    <None Include="lib\font-awesome\docs\assets\font\museo_slab_300-webfont.ttf" />
+    <None Include="lib\font-awesome\docs\assets\font\museo_slab_500-webfont.eot" />
+    <None Include="lib\font-awesome\docs\assets\font\museo_slab_500-webfont.ttf" />
+    <None Include="lib\font-awesome\docs\assets\font\proximanova-webfont.eot" />
+    <None Include="lib\font-awesome\docs\assets\font\proximanova-webfont.ttf" />
+    <None Include="lib\font-awesome\docs\assets\less\font-awesome-ie7.less" />
+    <None Include="lib\font-awesome\docs\assets\less\font-awesome.less" />
+    <None Include="lib\font-awesome\docs\assets\less\font-site.less" />
+    <None Include="lib\font-awesome\docs\assets\less\mixins.less" />
+    <None Include="lib\font-awesome\docs\assets\less\site.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\accordion.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\alerts.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\bootstrap.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\breadcrumbs.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\button-groups.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\buttons.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\carousel.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\close.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\code.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\component-animations.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\dropdowns.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\forms.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\grid.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\hero-unit.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\labels-badges.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\layouts.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\mixins.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\modals.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\navbar.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\navs.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\pager.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\pagination.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\popovers.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\progress-bars.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\reset.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\responsive-1200px-min.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\responsive-767px-max.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\responsive-768px-979px.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\responsive-navbar.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\responsive-utilities.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\responsive.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\scaffolding.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\sprites.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\tables.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\thumbnails.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\tooltip.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\type.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\utilities.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\variables.less" />
+    <None Include="lib\font-awesome\docs\assets\less\twbs-203\wells.less" />
+    <None Include="lib\font-awesome\docs\assets\less\variables.less" />
+    <None Include="lib\font-awesome\FontAwesome-Vectors.pdf" />
+    <None Include="lib\font-awesome\FontAwesome.ttf" />
+    <None Include="lib\font-awesome\font\fontawesome-webfont.eot" />
+    <None Include="lib\font-awesome\font\fontawesome-webfont.ttf" />
+    <None Include="lib\font-awesome\font\fontawesome-webfont.woff" />
+    <None Include="lib\font-awesome\less\font-awesome-ie7.less" />
+    <None Include="lib\font-awesome\less\font-awesome.less" />
+    <None Include="lib\font-awesome\README.md" />
+    <None Include="lib\font-awesome\sass\font-awesome.sass" />
+    <None Include="lib\font-awesome\sass\font-awesome.scss" />
+    <None Include="lib\fullcalendar-1.5.3\demos\json-events.php" />
+    <None Include="lib\lib\.DS_Store" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\fontawesome-webfont.eot" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\fontawesome-webfont.ttf" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\fontawesome-webfont.woff" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\museo_slab_300-webfont.eot" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\museo_slab_300-webfont.ttf" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\museo_slab_500-webfont.eot" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\museo_slab_500-webfont.ttf" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\proximanova-webfont.eot" />
+    <None Include="lib\lib\font-awesome\docs\assets\font\proximanova-webfont.ttf" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\font-awesome-ie7.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\font-awesome.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\font-site.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\mixins.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\site.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\accordion.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\alerts.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\bootstrap.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\breadcrumbs.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\button-groups.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\buttons.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\carousel.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\close.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\code.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\component-animations.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\dropdowns.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\forms.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\grid.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\hero-unit.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\labels-badges.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\layouts.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\mixins.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\modals.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\navbar.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\navs.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\pager.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\pagination.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\popovers.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\progress-bars.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\reset.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\responsive-1200px-min.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\responsive-767px-max.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\responsive-768px-979px.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\responsive-navbar.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\responsive-utilities.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\responsive.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\scaffolding.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\sprites.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\tables.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\thumbnails.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\tooltip.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\type.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\utilities.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\variables.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\twbs-203\wells.less" />
+    <None Include="lib\lib\font-awesome\docs\assets\less\variables.less" />
+    <None Include="lib\lib\font-awesome\FontAwesome-Vectors.pdf" />
+    <None Include="lib\lib\font-awesome\FontAwesome.ttf" />
+    <None Include="lib\lib\font-awesome\font\fontawesome-webfont.eot" />
+    <None Include="lib\lib\font-awesome\font\fontawesome-webfont.ttf" />
+    <None Include="lib\lib\font-awesome\font\fontawesome-webfont.woff" />
+    <None Include="lib\lib\font-awesome\less\font-awesome-ie7.less" />
+    <None Include="lib\lib\font-awesome\less\font-awesome.less" />
+    <None Include="lib\lib\font-awesome\README.md" />
+    <None Include="lib\lib\font-awesome\sass\font-awesome.sass" />
+    <None Include="lib\lib\font-awesome\sass\font-awesome.scss" />
+    <None Include="lib\lib\fullcalendar-1.5.3\demos\json-events.php" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VFSMapsService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VFSMapsService\Service.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://192.168.42.93/VFSMapsService/Service.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VFSMapsService\</RelPath>
+      <UpdateFromURL>http://192.168.42.93/VFSMapsService/Service.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>VFSMaps_VFSMapsService_Service1</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50031</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

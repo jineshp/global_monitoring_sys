@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetCountryCodeList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCountryCodeListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountryCodeListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCountryMaster">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCountryMasterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCountryMasterResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTATSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTATSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTATSummaryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationSummaryJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationSummaryJsonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationSummaryJsonResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationSummaryXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLocationSummaryXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLocationSummaryXmlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCountryCodeListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountryCodeList" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryCodeListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountryCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryMasterSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCountryMaster" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryMasterSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCountryMasterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTATSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetTATSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetTATSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetTATSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocationSummaryJson" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationSummaryJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLocationSummaryXml" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLocationSummaryXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryCodeListHttpGetIn" />
+  <wsdl:message name="GetCountryCodeListHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryMasterHttpGetIn" />
+  <wsdl:message name="GetCountryMasterHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTATSummaryHttpGetIn">
+    <wsdl:part name="CountryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTATSummaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryJsonHttpGetIn">
+    <wsdl:part name="CountryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryJsonHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryXmlHttpGetIn">
+    <wsdl:part name="CountryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryXmlHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryCodeListHttpPostIn" />
+  <wsdl:message name="GetCountryCodeListHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCountryMasterHttpPostIn" />
+  <wsdl:message name="GetCountryMasterHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTATSummaryHttpPostIn">
+    <wsdl:part name="CountryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTATSummaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryJsonHttpPostIn">
+    <wsdl:part name="CountryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryJsonHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryXmlHttpPostIn">
+    <wsdl:part name="CountryID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLocationSummaryXmlHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="Service1Soap">
+    <wsdl:operation name="GetCountryCodeList">
+      <wsdl:input message="tns:GetCountryCodeListSoapIn" />
+      <wsdl:output message="tns:GetCountryCodeListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryMaster">
+      <wsdl:input message="tns:GetCountryMasterSoapIn" />
+      <wsdl:output message="tns:GetCountryMasterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTATSummary">
+      <wsdl:input message="tns:GetTATSummarySoapIn" />
+      <wsdl:output message="tns:GetTATSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryJson">
+      <wsdl:input message="tns:GetLocationSummaryJsonSoapIn" />
+      <wsdl:output message="tns:GetLocationSummaryJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryXml">
+      <wsdl:input message="tns:GetLocationSummaryXmlSoapIn" />
+      <wsdl:output message="tns:GetLocationSummaryXmlSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpGet">
+    <wsdl:operation name="GetCountryCodeList">
+      <wsdl:input message="tns:GetCountryCodeListHttpGetIn" />
+      <wsdl:output message="tns:GetCountryCodeListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryMaster">
+      <wsdl:input message="tns:GetCountryMasterHttpGetIn" />
+      <wsdl:output message="tns:GetCountryMasterHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTATSummary">
+      <wsdl:input message="tns:GetTATSummaryHttpGetIn" />
+      <wsdl:output message="tns:GetTATSummaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryJson">
+      <wsdl:input message="tns:GetLocationSummaryJsonHttpGetIn" />
+      <wsdl:output message="tns:GetLocationSummaryJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryXml">
+      <wsdl:input message="tns:GetLocationSummaryXmlHttpGetIn" />
+      <wsdl:output message="tns:GetLocationSummaryXmlHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="Service1HttpPost">
+    <wsdl:operation name="GetCountryCodeList">
+      <wsdl:input message="tns:GetCountryCodeListHttpPostIn" />
+      <wsdl:output message="tns:GetCountryCodeListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryMaster">
+      <wsdl:input message="tns:GetCountryMasterHttpPostIn" />
+      <wsdl:output message="tns:GetCountryMasterHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTATSummary">
+      <wsdl:input message="tns:GetTATSummaryHttpPostIn" />
+      <wsdl:output message="tns:GetTATSummaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryJson">
+      <wsdl:input message="tns:GetLocationSummaryJsonHttpPostIn" />
+      <wsdl:output message="tns:GetLocationSummaryJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryXml">
+      <wsdl:input message="tns:GetLocationSummaryXmlHttpPostIn" />
+      <wsdl:output message="tns:GetLocationSummaryXmlHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCountryCodeList">
+      <soap:operation soapAction="http://tempuri.org/GetCountryCodeList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryMaster">
+      <soap:operation soapAction="http://tempuri.org/GetCountryMaster" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTATSummary">
+      <soap:operation soapAction="http://tempuri.org/GetTATSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryJson">
+      <soap:operation soapAction="http://tempuri.org/GetLocationSummaryJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryXml">
+      <soap:operation soapAction="http://tempuri.org/GetLocationSummaryXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCountryCodeList">
+      <soap12:operation soapAction="http://tempuri.org/GetCountryCodeList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryMaster">
+      <soap12:operation soapAction="http://tempuri.org/GetCountryMaster" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTATSummary">
+      <soap12:operation soapAction="http://tempuri.org/GetTATSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryJson">
+      <soap12:operation soapAction="http://tempuri.org/GetLocationSummaryJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryXml">
+      <soap12:operation soapAction="http://tempuri.org/GetLocationSummaryXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpGet" type="tns:Service1HttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetCountryCodeList">
+      <http:operation location="/GetCountryCodeList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryMaster">
+      <http:operation location="/GetCountryMaster" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTATSummary">
+      <http:operation location="/GetTATSummary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryJson">
+      <http:operation location="/GetLocationSummaryJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryXml">
+      <http:operation location="/GetLocationSummaryXml" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Service1HttpPost" type="tns:Service1HttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetCountryCodeList">
+      <http:operation location="/GetCountryCodeList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountryMaster">
+      <http:operation location="/GetCountryMaster" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTATSummary">
+      <http:operation location="/GetTATSummary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryJson">
+      <http:operation location="/GetLocationSummaryJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLocationSummaryXml">
+      <http:operation location="/GetLocationSummaryXml" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+      <soap:address location="http://192.168.42.93/VFSMapsService/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+      <soap12:address location="http://192.168.42.93/VFSMapsService/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpGet" binding="tns:Service1HttpGet">
+      <http:address location="http://192.168.42.93/VFSMapsService/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Service1HttpPost" binding="tns:Service1HttpPost">
+      <http:address location="http://192.168.42.93/VFSMapsService/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
